@@ -14,7 +14,8 @@ module.exports = {
         }
         var attachment = message.attachments.array()[0];
         imageDownloader.image({url: attachment.url, dest: '/tmpimgs'}).then(async ({filename}) => {
-            var theImage = require(`./${filename}`);
+            console.log('a')
+            var theImage = require(`../${filename}`);
             var scaler = anime4k.scaler(theImage);
             scaler.inputImage(theImage);
             scaler.resize(2.0);
