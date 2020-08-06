@@ -13,7 +13,7 @@ module.exports = {
             return message.channel.send(`:( no attachments`);
         }
         var attachment = message.attachments.array()[0];
-        imageDownloader.image({url: attachment.url, dest: './tmpimgs'}).then(async ({filename}) => {
+        imageDownloader.image({url: attachment.url, dest: '/tmpimgs'}).then(async ({filename}) => {
             var theImage = require(`./${filename}`);
             var scaler = anime4k.scaler(theImage);
             var inputImg = new Image();
