@@ -9,7 +9,7 @@ module.exports = {
     usage: "<image>",
 
     async senko(client, message, args) {
-        console.log(waifu2x)
+        console.log(Waifu2x)
         if (!message.attachments) {
             return message.channel.send(`:( no attachments`);
         }
