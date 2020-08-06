@@ -17,6 +17,7 @@ module.exports = {
             console.log('a')
             var theImage = require(`../${filename}`);
             var scaler = anime4k.scaler(theImage);
+            console.log(scaler)
             scaler.inputImage(theImage);
             scaler.resize(2.0);
             console.log(scaler)
