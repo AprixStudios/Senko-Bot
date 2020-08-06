@@ -16,13 +16,9 @@ module.exports = {
         imageDownloader.image({url: attachment.url, dest: '/tmpimgs'}).then(async ({filename}) => {
             var theImage = require(`./${filename}`);
             var scaler = anime4k.scaler(theImage);
-            var inputImg = new Image();
-            inputImg.onLoad = function() {
-                scaler.inputImage(inputImg);
-                scaler.resize(2.0);
-                return message.channel.send(scaler);
-            }
-            inputImg.src = `${filename}`
+            scaler.inputImage(theImage);
+            scaler.resize(2.0);
+            return message.channel.send(scaler);
         });
     }
 }
