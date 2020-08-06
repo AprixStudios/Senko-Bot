@@ -15,7 +15,7 @@ module.exports = {
         var attachment = message.attachments.array()[0][1];
         imageDownloader.image({url: attachment.url, path: '../tmpimgs'}).then(async ({filename}) => {
             await waifu2x.upscaleImage(`../tmpimgs/${filename}.png`, `../tmpimgsupscaled/${filename}2x.png`);
-            var upscaledImage = require(`../tmpimgsupscaled/${filename}.png`)
+            var upscaledImage = require(`../tmpimgsupscaled/${filename}.png`);
             return message.channel.send(upscaledImage);
         });
     }
