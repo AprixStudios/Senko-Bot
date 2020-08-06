@@ -18,6 +18,7 @@ module.exports = {
             var scaler = anime4k.scaler(theImage);
             scaler.inputImage(theImage);
             scaler.resize(2.0);
+            console.log(scaler)
             return message.channel.send(scaler);
         });
     }
