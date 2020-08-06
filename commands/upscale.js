@@ -9,7 +9,6 @@ module.exports = {
     usage: "<image>",
 
     async senko(client, message, args) {
-        console.log(waifu2x.default)
         if (!message.attachments.array()[0]) {
             return message.channel.send(`:( no attachments`);
         }
