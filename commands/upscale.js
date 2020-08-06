@@ -1,6 +1,6 @@
 const {MessageEmbed} = require('discord.js');
 const imageDownloader = require('image-downloader');
-const waifu2x = require('waifu2x');
+import waifu2x from "waifu2x";
 
 module.exports = {
     name: "upscale",
