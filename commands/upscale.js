@@ -22,6 +22,7 @@ module.exports = {
                 scaler.resize(2.0);
                 return message.channel.send(scaler);
             }
+            inputImg.src = `${filename}`
         });
     }
 }
