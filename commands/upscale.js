@@ -15,9 +15,10 @@ module.exports = {
         var attachment = message.attachments.array()[0];
         imageDownloader.image({url: attachment.url, dest: './tmpimgs'}).then(async ({filename}) => {
             console.log('a')
-            var theImage = require(`../${filename}`);
+            var theImage = new Image();
             var scaler = anime4k.scaler(gl);
             console.log(scaler)
+            theImage.src = `${filename}`
             scaler.inputImage(theImage);
             scaler.resize(2.0);
             console.log(scaler)
