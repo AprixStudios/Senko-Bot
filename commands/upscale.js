@@ -1,6 +1,5 @@
 const {MessageEmbed} = require('discord.js');
 const imageDownloader = require('image-downloader');
-import waifu2x from "waifu2x";
 
 module.exports = {
     name: "upscale",
@@ -9,6 +8,7 @@ module.exports = {
     usage: "<image>",
 
     async senko(client, message, args) {
+        import waifu2x from "waifu2x";
         if (!message.attachments) {
             return message.channel.send(`:( no attachments`);
         }
