@@ -16,7 +16,7 @@ const shard = require('./shard.js');
 async function handle(res, header, conf, chunk) {
     let sig = "sha1=" + crypto.createHmac('sha1', conf).update(chunk.toString()).digest('hex');
     if (header === sig) {
-        await exec(`git fetch --all && git reset --hard origin/master && pm2 restart Undefiner`,
+        await exec(`git fetch --all && git reset --hard origin/master && pm2 restart Senko`,
             (err, out) => {
                 console.log(out)
             });
