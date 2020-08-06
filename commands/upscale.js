@@ -1,6 +1,6 @@
 const {MessageEmbed} = require('discord.js');
 const imageDownloader = require('image-downloader');
-import waifu2x from 'waifu2x';
+const anime4k = require('anime4k');
 
 module.exports = {
     name: "upscale",
@@ -15,9 +15,14 @@ module.exports = {
         }
         var attachment = message.attachments.array()[0];
         imageDownloader.image({url: attachment.url, dest: './tmpimgs'}).then(async ({filename}) => {
-            await waifu2x.upscaleImage(`./tmpimgs/${filename}.png`, `./tmpimgsupscaled/${filename}2x.png`, {noise: 2, scale: 2.0});
-            var upscaledImage = require(`./tmpimgsupscaled/${filename}.png`);
-            return message.channel.send(upscaledImage);
+            var theImage = require(`./tmpimgs/${filename}.png`);
+            var scaler = anime4k.scaler(theImage);
+            var inputImg = new Image();
+            inputImg.onLoad = function() {
+                scaler.inputImage(inputImg);
+                scaler.resize(2.0);
+                return message.channel.send(scaler);
+            }
         });
     }
 }
