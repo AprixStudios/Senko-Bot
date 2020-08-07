@@ -12,6 +12,7 @@ module.exports = {
     async senko(client, message, args) {
         if (args[0]) {
             let images = await randomAnimeWallpapers(args[0]);
+            console.log(images)
             let embed = new MessageEmbed()
             .setColor(branding)
             .setImage(images.full)
