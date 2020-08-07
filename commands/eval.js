@@ -22,9 +22,8 @@ module.exports = {
             message.channel.send({
               embed: {
                 color: branding,
-                descripion: str.success,
                 fields: [
-                  { name: `Input`, value: `\`\`\`js\n${msg.args.join(' ')}\`\`\`` },
+                  { name: `Input`, value: `\`\`\`js\n${args.join(' ')}\`\`\`` },
                   { name: `Output`, value: `\`\`\`js\n${evaled}\`\`\`` }
                 ]
               }
@@ -34,9 +33,8 @@ module.exports = {
           message.channel.send({
             embed: {
               color: branding,
-              descripion: str.failure,
               fields: [
-                { name: `Input`, value: `\`\`\`js\n${msg.args.join(' ')}\`\`\`` },
+                { name: `Input`, value: `\`\`\`js\n${args.join(' ')}\`\`\`` },
                 { name: `Output`, value: `\`\`\`js\n${err}\`\`\`` }
               ]
             }
