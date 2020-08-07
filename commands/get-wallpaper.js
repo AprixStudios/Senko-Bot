@@ -18,6 +18,7 @@ module.exports = {
             return message.channel.send(embed).catch(err => err);
         } else {
             let images = await randomAnimeWallpapers();
+            console.log(images);
             let embed = new MessageEmbed()
             .setColor(branding)
             .setImage(images.full)
