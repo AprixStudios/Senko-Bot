@@ -11,7 +11,7 @@ module.exports = {
     category: "image",
 
     async senko(client, message, args) {
-        if (args[0].search(/nsfw/i)>=0) {
+        if (args[0] && args[0].search(/nsfw/i)>=0) {
             if (message.channel.nsfw !== true) {
                 let embed = new MessageEmbed()
                 .setColor(branding)
