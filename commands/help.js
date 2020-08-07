@@ -18,6 +18,7 @@ module.exports = {
                 image: [],
                 anime: [],
                 info: [],
+                misc: [],
                 developer: []
             };
             client.commands.map(cmd => cmd).forEach(cmd => {
@@ -33,14 +34,16 @@ module.exports = {
             .addField(`Images`, commands.image.join(', '), true)
             .addField(`Anime`, commands.anime.join(', '), true)
             .addField(`Information`, commands.info.join(', '), true)
+            .addField(`Misc`, command.misc.join(', '), true)
             .addField(`Developer`, commands.developer.join(', '), true)
 
             return message.channel.send(embed).catch(err => {
                 message.channel.send(`**Help**
-<> = required | [] = optional\n${prefix}${this.name} ${this.usage}
+<> = required | [] = optional\nI NEED EMBED PERMISSIONS FOR ALL COMMANDS!\n${prefix}${this.name} ${this.usage}
 **Images**: ${commands.images.join(', ')}
 **Anime**: ${commands.anime.join(', ')}
 **Information**: ${commands.info.join(', ')}
+**Misc**: ${command.misc.join(', ')}
 **Developer**: ${commands.developer.join(', ')}`).catch(error => error);
             });
         } else if (command) {

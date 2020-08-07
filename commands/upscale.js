@@ -11,7 +11,11 @@ module.exports = {
 
     async senko(client, message, args) {
         if (!message.attachments.array()[0]) {
-            return message.channel.send(`:( no attachments`);
+            let embed = new MessageEmbed()
+            .setColor(config.colors.branding)
+            .setDescription(`:( no attachments`)
+            .setImage(config.images[0])
+            return message.channel.send(embed).catch(err => err);
         }
         var attachment = message.attachments.array()[0];
         deepai.setApiKey(`${config.deepaiApiKey}`);

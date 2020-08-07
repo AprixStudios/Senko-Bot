@@ -15,7 +15,7 @@ module.exports = {
             if (message.channel.nsfw !== true) {
                 let embed = new MessageEmbed()
                 .setColor(branding)
-                .setDescription(`but.. but this isn't a NSFW channel!`)
+                .setDescription(`but.. but... this isn't a NSFW channel!`)
                 .setImage(images[0])
                 return message.channel.send(embed).catch(err => err);
             }
