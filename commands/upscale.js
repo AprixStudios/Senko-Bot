@@ -17,9 +17,11 @@ module.exports = {
         //imageDownloader.image({url: attachment.url, dest: './tmpimgs'}).then(async ({filename}) => {
         console.log('a')
         deepai.setApiKey(deepaiApiKey);
-        var resp = await deepai.callStandardApi("waifu2x", {image: attachment.url});
-        console.log(resp);
-        return message.channel.send(resp);
+        (async function() {
+            var resp = await deepai.callStandardApi("waifu2x", {image: attachment.url});
+            console.log(resp);
+            return message.channel.send(resp);
+        })();
         //});
     }
 }
