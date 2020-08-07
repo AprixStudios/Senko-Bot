@@ -11,7 +11,6 @@ module.exports = {
 
     async senko(client, message, args) {
         var x = Math.round(Math.random()*(images.length-1));
-        if (x<0) x=0;
         let embed = new MessageEmbed()
         .setColor(branding)
         .setImage(images[x])
