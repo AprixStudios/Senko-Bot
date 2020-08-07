@@ -14,13 +14,13 @@ module.exports = {
             let images = await randomAnimeWallpapers(args[0]);
             let embed = new MessageEmbed()
             .setColor(branding)
-            .setImage(images[0].full)
+            .setImage(images.full)
             return message.channel.send(embed).catch(err => err);
         } else {
             let images = await randomAnimeWallpapers();
             let embed = new MessageEmbed()
             .setColor(branding)
-            .setImage(images[0].full)
+            .setImage(images.full)
             return message.channel.send(embed).catch(err => err);
         }
     }
