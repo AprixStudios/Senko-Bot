@@ -20,7 +20,10 @@ module.exports = {
         
         var resp = await deepai.callStandardApi("waifu2x", {image: attachment.url});
         console.log(resp);
-        return message.channel.send(resp);
+        let embed = new MessageEmbed()
+        .setColor("#f2c961")
+        .setImage(resp.output_url)
+        return message.channel.send(embed);
         //});
     }
 }
