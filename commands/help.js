@@ -34,7 +34,7 @@ module.exports = {
             .addField(`Images`, commands.image.join(', '), true)
             .addField(`Anime`, commands.anime.join(', '), true)
             .addField(`Information`, commands.info.join(', '), true)
-            .addField(`Misc`, command.misc.join(', '), true)
+            .addField(`Misc`, commands.misc.join(', '), true)
             .addField(`Developer`, commands.developer.join(', '), true)
 
             return message.channel.send(embed).catch(err => {
@@ -43,7 +43,7 @@ module.exports = {
 **Images**: ${commands.images.join(', ')}
 **Anime**: ${commands.anime.join(', ')}
 **Information**: ${commands.info.join(', ')}
-**Misc**: ${command.misc.join(', ')}
+**Misc**: ${commands.misc.join(', ')}
 **Developer**: ${commands.developer.join(', ')}`).catch(error => error);
             });
         } else if (command) {
