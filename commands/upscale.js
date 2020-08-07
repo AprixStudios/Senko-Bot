@@ -1,7 +1,7 @@
 const {MessageEmbed} = require('discord.js');
 const imageDownloader = require('image-downloader');
 const deepai = require('deepai')
-const {deepaiApiKey} = require('../config.json');
+const config = require('../config.json');
 
 module.exports = {
     name: "upscale",
@@ -16,12 +16,11 @@ module.exports = {
         var attachment = message.attachments.array()[0];
         //imageDownloader.image({url: attachment.url, dest: './tmpimgs'}).then(async ({filename}) => {
         console.log('a')
-        deepai.setApiKey(deepaiApiKey);
-        (async function() {
-            var resp = await deepai.callStandardApi("waifu2x", {image: attachment.url});
-            console.log(resp);
-            return message.channel.send(resp);
-        })();
+        deepai.setApiKey(config.deepaiApiKey);
+        
+        var resp = await deepai.callStandardApi("waifu2x", {image: attachment.url});
+        console.log(resp);
+        return message.channel.send(resp);
         //});
     }
 }
