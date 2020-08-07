@@ -18,7 +18,7 @@ module.exports = {
         console.log('a')
         deepai.setApiKey(config.deepaiApiKey);
         
-        var resp = await deepai.callStandardApi("waifu2x", {image: attachment.url});
+        var resp = await deepai.callStandardApi("content-moderation", {image: attachment.url});
         console.log(resp);
         return message.channel.send(resp);
         //});
