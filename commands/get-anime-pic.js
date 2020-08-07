@@ -19,18 +19,16 @@ module.exports = {
                 .setImage(images[0])
                 return message.channel.send(embed).catch(err => err);
             }
-            var images = randomAnime.nsfw();
-            console.log(images)
+            let theImage = randomAnime.nsfw();
             let embed = new MessageEmbed()
             .setColor(branding)
-            .setImage(images)
+            .setImage(theImage)
             return message.channel.send(embed).catch(err => err);
         } else {
-            let images = randomAnime.anime();
-            console.log(images);
+            let theImage = randomAnime.anime();
             let embed = new MessageEmbed()
             .setColor(branding)
-            .setImage(images)
+            .setImage(theImage)
             return message.channel.send(embed).catch(err => err);
         }
     }
