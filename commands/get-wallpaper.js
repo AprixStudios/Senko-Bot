@@ -17,12 +17,13 @@ module.exports = {
             .setImage(images.full)
             return message.channel.send(embed).catch(err => err);
         } else {
-            let images = await randomAnimeWallpapers();
-            console.log(images);
-            let embed = new MessageEmbed()
-            .setColor(branding)
-            .setImage(images.full)
-            return message.channel.send(embed).catch(err => err);
+            let images = await randomAnimeWallpapers().then(images => {
+                console.log(images);
+                let embed = new MessageEmbed()
+                .setColor(branding)
+                .setImage(images.full)
+                return message.channel.send(embed).catch(err => err);
+            });
         }
     }
 }
