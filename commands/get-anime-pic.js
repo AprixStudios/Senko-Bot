@@ -7,7 +7,7 @@ module.exports = {
     name: "get-wallpaper",
     description: "Get a random anime wallpaper!",
     usage: "[nsfw]",
-    aliases: ["wallpaper"],
+    aliases: ["anime-pic", "get-pic"],
     category: "image",
 
     async senko(client, message, args) {
