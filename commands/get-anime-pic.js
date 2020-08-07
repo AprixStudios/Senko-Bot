@@ -4,7 +4,7 @@ const {branding} = require('../config.json').colors;
 const {images} = require('../config.json');
 
 module.exports = {
-    name: "get-wallpaper",
+    name: "get-anime-pic",
     description: "Get a random anime wallpaper!",
     usage: "[nsfw]",
     aliases: ["anime-pic", "get-pic"],
