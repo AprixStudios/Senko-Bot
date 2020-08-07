@@ -12,7 +12,7 @@ module.exports = {
 
     async senko(client, message, args) {
         if (args[0] && args[0].search(/nsfw/i)>=0) {
-            if (message.channel.nsfw === true) {
+            if (message.channel.nsfw !== true) {
                 let embed = new MessageEmbed()
                 .setColor(branding)
                 .setDescription(`but.. but this isn't a NSFW channel!`)
