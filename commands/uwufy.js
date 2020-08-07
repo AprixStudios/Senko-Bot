@@ -18,7 +18,7 @@ module.exports = {
             .setImage(images[0])
             return message.channel.send(embed).catch(err => err);
         }
-        var uwufied = uwufier.uwuifySentence(args.join(' '));
+        var uwufied = uwuifier.uwuifySentence(args.join(' '));
         let embed = new MessageEmbed()
         .setColor(branding)
         .setDescription(uwufied)
