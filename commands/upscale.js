@@ -7,6 +7,7 @@ module.exports = {
     description: "Upscale a image.",
     aliases: [],
     usage: "<image>",
+    category: "image",
 
     async senko(client, message, args) {
         if (!message.attachments.array()[0]) {
