@@ -20,7 +20,6 @@ module.exports = {
         var attachment = message.attachments.array()[0];
         deepai.setApiKey(`${config.deepaiApiKey}`);
         var resp = await deepai.callStandardApi("waifu2x", {image: attachment.url});
-        console.log(resp);
         let embed = new MessageEmbed()
         .setColor(config.colors.branding)
         .setImage(resp.output_url)
