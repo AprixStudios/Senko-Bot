@@ -16,9 +16,9 @@ module.exports = {
         var attachment = message.attachments.array()[0];
         //imageDownloader.image({url: attachment.url, dest: './tmpimgs'}).then(async ({filename}) => {
         console.log('a')
-        deepai.setApiKey(config.deepaiApiKey);
+        deepai.setApiKey(`${config.deepaiApiKey}`);
         
-        var resp = await deepai.callStandardApi("content-moderation", {image: attachment.url});
+        var resp = await deepai.callStandardApi("waifu2x", {image: attachment.url});
         console.log(resp);
         return message.channel.send(resp);
         //});
