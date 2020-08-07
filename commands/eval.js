@@ -9,7 +9,7 @@ module.exports = {
     usage: '<code>',
     category: "developer",
 
-    async undefine(client, message, args) {
+    async senko(client, message, args) {
         if (message.author.id !== "266162824529707008") return;
         try {
           var code = args.join(" ");
