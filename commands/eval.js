@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const fs = require('fs-extra');
 const {branding} = require('../config.json').colors;
-const {token} = require('../config.json');
 
 module.exports = {
     name: "eval",
@@ -16,13 +15,7 @@ module.exports = {
           var code = args.join(" ");
           let evaled = await require('util').inspect(eval(code));
           if (typeof evaled !== "string") evaled = require("util").inspect(evaled);
-          var evaledArgs = evaled.split(/ +/);
-            for (let arg of evaledArgs) {
-              if (arg.toLowerCase() === token.toLowerCase()) {
-                let index = evaledArgs.indexOf(arg);
-                evaledArgs[index] = "Not Leaking Token";
-              }
-          }
+          evaled.replace(`'${client.token}'`, `'token'`);
           if (evaled.length > 1024) {
             return message.channel.send(`Too long text, eek.`);
           } else {
@@ -31,7 +24,7 @@ module.exports = {
                 color: branding,
                 fields: [
                   { name: `Input`, value: `\`\`\`js\n${args.join(' ')}\`\`\`` },
-                  { name: `Output`, value: `\`\`\`js\n${evaledArgs.join(' ')}\`\`\`` }
+                  { name: `Output`, value: `\`\`\`js\n${evaled}\`\`\`` }
                 ]
               }
             });
