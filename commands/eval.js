@@ -16,13 +16,11 @@ module.exports = {
           let evaled = await require('util').inspect(eval(code));
           if (typeof evaled !== "string") evaled = require("util").inspect(evaled);
           var evaledArgs = evaled.split(/ +/);
-          if (evaledArgs.includes(client.token)) {
             for (let arg of evaledArgs) {
               if (arg.toLowerCase() === client.token.toLowerCase()) {
                 let index = evaledArgs.indexOf(arg);
                 evaledArgs[index] = "Not Leaking Token";
               }
-            }
           }
           if (evaled.length > 1024) {
             return message.channel.send(`Too long text, eek.`);
