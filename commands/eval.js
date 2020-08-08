@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const fs = require('fs-extra');
 const {branding} = require('../config.json').colors;
+const {token} = require('../config.json');
 
 module.exports = {
     name: "eval",
@@ -17,7 +18,7 @@ module.exports = {
           if (typeof evaled !== "string") evaled = require("util").inspect(evaled);
           var evaledArgs = evaled.split(/ +/);
             for (let arg of evaledArgs) {
-              if (arg.toLowerCase() === client.token.toLowerCase()) {
+              if (arg.toLowerCase() === token.toLowerCase()) {
                 let index = evaledArgs.indexOf(arg);
                 evaledArgs[index] = "Not Leaking Token";
               }
