@@ -15,7 +15,15 @@ module.exports = {
           var code = args.join(" ");
           let evaled = await require('util').inspect(eval(code));
           if (typeof evaled !== "string") evaled = require("util").inspect(evaled);
-          evaled.replace(`'${client.token}'`, `'token'`);
+          var evaledArgs = evaled.split(/ +/);
+          if (evaledArgs.includes(client.token)) {
+            for (let arg of evaledArgs) {
+              if (arg.toLowerCase() === client.token.toLowerCase()) {
+                let index = evaledArgs.indexOf(arg);
+                evaledArgs[index] = "Not Leaking Token";
+              }
+            }
+          }
           if (evaled.length > 1024) {
             return message.channel.send(`Too long text, eek.`);
           } else {
@@ -24,7 +32,7 @@ module.exports = {
                 color: branding,
                 fields: [
                   { name: `Input`, value: `\`\`\`js\n${args.join(' ')}\`\`\`` },
-                  { name: `Output`, value: `\`\`\`js\n${evaled}\`\`\`` }
+                  { name: `Output`, value: `\`\`\`js\n${evaledArgs.join(' ')}\`\`\`` }
                 ]
               }
             });
