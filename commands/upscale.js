@@ -24,6 +24,6 @@ module.exports = {
         let embed = new MessageEmbed()
         .setColor(config.colors.branding)
         .setImage(resp.output_url)
-        return message.channel.send(embed).then(() => msg.delete({delay: 2000})).catch(err => message.channel.send(`Failed: No Embed Permissions`));
+        return message.channel.send(embed).then(() => msg.delete({timeout: 2000})).catch(err => message.channel.send(`Failed: No Embed Permissions`));
     }
 }
