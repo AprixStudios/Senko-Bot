@@ -17,12 +17,13 @@ module.exports = {
             .setImage(config.images[0])
             return message.channel.send(embed).catch(err => err);
         }
+        let msg = await message.channel.send(`Upscaling...`);
         var attachment = message.attachments.array()[0];
         deepai.setApiKey(`${config.deepaiApiKey}`);
         var resp = await deepai.callStandardApi("waifu2x", {image: attachment.url});
         let embed = new MessageEmbed()
         .setColor(config.colors.branding)
         .setImage(resp.output_url)
-        return message.channel.send(embed).catch(err => err);
+        return message.channel.send(embed).then(() => msg.delete({delay: 2000})).catch(err => message.channel.send(`Failed: No Embed Permissions`));
     }
 }
